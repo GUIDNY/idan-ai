@@ -66,7 +66,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .logo {
@@ -481,9 +482,48 @@ footer {
 }
 
 @media (max-width: 800px) {
-  .nav-links { display: none; }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    inset-inline-end: 16px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 20px;
+    box-shadow: 0 14px 40px -10px rgba(0,0,0,0.5);
+    gap: 4px;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  .nav-links a { padding: 8px 0; }
+  .nav-links.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
   .menu-toggle { display: inline-block; }
   .contact-grid { grid-template-columns: 1fr; }
+
+  .container { padding: 0 16px; }
+
+  .hero { padding: 56px 0 44px; }
+  .hero h1 { font-size: clamp(1.7rem, 8vw, 2.4rem); }
+  .hero p { font-size: 1rem; }
+  .eyebrow { font-size: 0.8rem; padding: 5px 13px; }
+
+  section { padding: 48px 0; }
+  .section-head { margin-bottom: 30px; }
+  .section-head h2 { font-size: 1.5rem; }
+
+  .article-head { padding: 40px 0 22px; }
+  .article-body { padding: 34px 0; }
+
+  .tool-card { padding: 22px; }
+  .contact-card { padding: 22px; }
+  .chat-messages { min-height: 220px; }
+
+  .step-actions { flex-wrap: wrap; gap: 10px; }
+  .step-actions .btn { flex: 1; text-align: center; }
 }
 
 /* ---------- assessment tool ---------- */
