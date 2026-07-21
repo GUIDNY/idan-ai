@@ -997,3 +997,85 @@ footer {
 @media (max-width: 800px) {
   .crm-board { grid-template-columns: 1fr; }
 }
+
+/* ---------- consult modal ---------- */
+.consult-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.consult-modal.open { display: flex; }
+
+.consult-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 10, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.consult-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 34px 28px 28px;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6);
+  animation: consultIn .22s ease;
+}
+
+@keyframes consultIn {
+  from { opacity: 0; transform: translateY(12px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.consult-panel h2 { margin: 0 0 8px; font-size: 1.4rem; }
+.consult-sub { color: var(--text-dim); margin: 0 0 24px; font-size: 0.95rem; }
+
+.consult-close {
+  position: absolute;
+  top: 18px;
+  inset-inline-start: 18px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.consult-close:hover { color: var(--text); border-color: var(--accent); }
+
+.consult-options { display: flex; flex-direction: column; gap: 12px; }
+
+.consult-option {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: border-color .15s ease, transform .15s ease;
+}
+
+.consult-option:hover { border-color: var(--accent); transform: translateY(-2px); }
+.consult-option b { display: block; font-size: 1.02rem; margin-bottom: 4px; }
+.consult-option span { color: var(--text-dim); font-size: 0.88rem; }
+
+.consult-footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  margin: 22px 0 0;
+}

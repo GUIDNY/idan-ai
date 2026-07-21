@@ -39,10 +39,47 @@
       </ul>
       <div class="hero-actions">
         <a href="assessment.html" class="btn btn-primary">בדיקת התאמה חינם - קבלו ציון מיד</a>
-        <a href="guides/index.html" class="btn btn-secondary">למדריכים</a>
+        <button type="button" class="btn btn-secondary" id="consult-open">לשיחת ייעוץ</button>
       </div>
     </div>
   </section>
+
+  <div class="consult-modal" id="consult-modal" aria-hidden="true">
+    <div class="consult-backdrop" id="consult-backdrop"></div>
+    <div class="consult-panel" role="dialog" aria-modal="true" aria-labelledby="consult-title">
+      <button type="button" class="consult-close" id="consult-close" aria-label="סגירה">✕</button>
+      <h2 id="consult-title">שיחה אחת. על מה נדבר?</h2>
+      <p class="consult-sub">בחרו נושא - ותועברו לוואטסאפ עם הודעה מוכנה, בלי התחייבות.</p>
+      <div class="consult-options">
+        <a class="consult-option" target="_blank" rel="noopener"
+           href="https://wa.me/972547701899?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%99%D7%93%D7%9F%2C%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A2%D7%9C%20%D7%94%D7%98%D7%9E%D7%A2%D7%AA%20AI%20%D7%95%D7%90%D7%95%D7%98%D7%95%D7%9E%D7%A6%D7%99%D7%94%20%D7%91%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.">
+          <b>הטמעת AI בעסק</b>
+          <span>אוטומציה, סוכני AI ותהליכים חכמים שחוסכים זמן</span>
+        </a>
+        <a class="consult-option" target="_blank" rel="noopener"
+           href="https://wa.me/972547701899?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%99%D7%93%D7%9F%2C%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%A6%27%D7%90%D7%98%D7%91%D7%95%D7%98%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.">
+          <b>בניית צ'אטבוט</b>
+          <span>בוט שירות לקוחות שעונה במקומכם, גם ב-3 בלילה</span>
+        </a>
+        <a class="consult-option" target="_blank" rel="noopener"
+           href="https://wa.me/972547701899?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%99%D7%93%D7%9F%2C%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99.">
+          <b>אתר לעסק</b>
+          <span>אתר מקצועי עם כלי AI מובנים בפנים</span>
+        </a>
+        <a class="consult-option" target="_blank" rel="noopener"
+           href="https://wa.me/972547701899?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%99%D7%93%D7%9F%2C%20%D7%9C%D7%90%20%D7%91%D7%98%D7%95%D7%97%2F%D7%94%20%D7%9E%D7%94%20%D7%94%D7%9B%D7%99%20%D7%9E%D7%AA%D7%90%D7%99%D7%9D%20%D7%9C%D7%99%20-%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%AA%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A7%D7%A6%D7%A8%D7%94.">
+          <b>לא בטוח/ה מה מתאים</b>
+          <span>בואו נדבר ונבין ביחד מה הכי משתלם לכם</span>
+        </a>
+        <a class="consult-option" target="_blank" rel="noopener"
+           href="https://wa.me/972547701899?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%99%D7%93%D7%9F%2C%20%D7%99%D7%A9%20%D7%9C%D7%99%20%D7%A8%D7%A2%D7%99%D7%95%D7%9F%20%D7%A9%D7%A8%D7%A6%D7%99%D7%AA%D7%99%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%A2%D7%9C%D7%99%D7%95%20%D7%90%D7%99%D7%AA%D7%9A.">
+          <b>יש לי רעיון</b>
+          <span>משהו אחר לגמרי? ספרו לי עליו</span>
+        </a>
+      </div>
+      <p class="consult-footer">מענה אישי של עידן · בלי התחייבות</p>
+    </div>
+  </div>
 
   <div class="marquee">
     <div class="marquee-track">
@@ -166,3 +203,4 @@
 
 <script src="assets/script.js"></script>
 <script src="assets/hero-video.js"></script>
+<script src="assets/consult-modal.js"></script>
