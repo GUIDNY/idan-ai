@@ -1,0 +1,101 @@
+<title>איך לבנות אפליקציה ל-iPhone עם Xcode - מדריך למתחילים | עידן AI</title>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="מדריך למתחילים לבניית אפליקציית iPhone עם Xcode ו-SwiftUI, כולל איך AI (Claude) מזרז את התהליך ומה צריך כדי לפרסם ל-App Store.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+
+<a href="../contact.html" class="announce-bar">⚡ אל תישארו מאחור - AI כבר כאן. בואו נדבר ←</a>
+<header>
+  <div class="container nav">
+    <a href="../index.html" class="logo"><img src="../assets/images/aidan-avatar.png" alt="עידן גינדי" class="logo-avatar">עידן <span>AI</span></a>
+    <nav class="nav-links">
+      <a href="../index.html">בית</a>
+      <a href="index.html">מדריכים</a>
+      <a href="../work.html">דוגמאות</a>
+      <a href="../about.html">עליי</a>
+      <a href="../contact.html">צור קשר</a>
+    </nav>
+    <a href="../assessment.html" class="nav-cta">בדיקת התאמה חינם</a>
+    <button class="menu-toggle" aria-label="תפריט">☰</button>
+  </div>
+</header>
+
+<main>
+  <div class="article-head">
+    <div class="container">
+      <div class="breadcrumbs"><a href="index.html">מדריכים</a> / בניית אפליקציה עם Xcode</div>
+      <h1>איך לבנות אפליקציה ל-iPhone עם Xcode - מדריך למתחילים</h1>
+      <div class="meta">
+        <span>מאת עידן גינדי</span>
+        <span>עודכן יולי 2026</span>
+        <span>זמן קריאה: 7 דקות</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <article class="article-body">
+      <p>הרבה אנשים חושבים שצריך רקע כבד בתכנות כדי לבנות אפליקציה ל-iPhone. זה כבר הרבה פחות נכון היום: <strong>Xcode</strong> (סביבת הפיתוח הרשמית של אפל) בשילוב עם <strong>AI</strong> מקצר משמעותית את הדרך מרעיון לאפליקציה עובדת - במיוחד עכשיו כש-Claude משולב ישירות בתוך Xcode.</p>
+
+      <h2>מה זה בעצם Xcode</h2>
+      <p>Xcode הוא התוכנה הרשמית של אפל לבניית אפליקציות ל-iPhone, iPad ומק - כולל עורך קוד, סימולטור (מכשיר iPhone וירטואלי על המסך שלכם) וכל הכלים הדרושים כדי להגיש אפליקציה בפועל ל-App Store. היא <strong>חינמית</strong> וזמינה דרך ה-App Store, אבל דורשת מחשב Mac - זו לא אפשרות ב-Windows או Linux.</p>
+
+      <h2>מה צריך כדי להתחיל</h2>
+      <ul>
+        <li><strong>מחשב Mac</strong> - עם גרסת macOS עדכנית יחסית.</li>
+        <li><strong>Xcode</strong> - הורדה חינמית מה-App Store (קובץ גדול, כדאי רשת יציבה).</li>
+        <li><strong>Apple ID</strong> - לצורך התחברות והרצה על מכשיר אמיתי, לא רק סימולטור.</li>
+        <li><strong>חשבון Apple Developer</strong> (בתשלום שנתי) - נדרש רק בשלב שרוצים לפרסם בפועל ל-App Store, לא כדי להתחיל לבנות ולבדוק.</li>
+      </ul>
+
+      <h2>השפה: Swift ו-SwiftUI</h2>
+      <p><strong>Swift</strong> היא שפת התכנות של אפל לבניית אפליקציות. <strong>SwiftUI</strong> היא הדרך המודרנית לבנות את המסכים והממשק - מתארים איך המסך אמור להיראות ולהתנהג, וה-framework דואג לפרטים הטכניים. זו הסיבה שקל היום הרבה יותר להתחיל מאשר בעבר: לא צריך לבנות כל פיקסל ידנית.</p>
+
+      <div class="callout">
+        <strong>מה השתנה עם AI:</strong> נכון ל-2026, Claude משולב ישירות בתוך Xcode - אפשר לתאר במילים פשוטות מה רוצים שהמסך יעשה, ו-Claude כותב את קוד ה-SwiftUI בעצמו. זה לא מבטל את הצורך להבין מה קורה, אבל זה הופך את שלב הכתיבה הראשונית להרבה יותר מהיר, במיוחד למי שרק מתחיל.
+      </div>
+
+      <h2>איך בונים אפליקציה ראשונה - בקצרה</h2>
+      <ol>
+        <li><strong>פותחים פרויקט חדש</strong> ב-Xcode ובוחרים תבנית "App" עם SwiftUI.</li>
+        <li><strong>מתארים ל-AI מה רוצים</strong> - למשל "מסך עם רשימת משימות, אפשרות להוסיף ולמחוק פריט". Claude בתוך Xcode יכול להציע קוד SwiftUI מתאים.</li>
+        <li><strong>בודקים בסימולטור</strong> - Xcode מריץ את האפליקציה על iPhone וירטואלי ישירות על המסך, בלי צורך במכשיר אמיתי בשלב הזה.</li>
+        <li><strong>מתקנים ומשפרים</strong> - בקשות תיקון ל-AI ("תוסיף אפשרות לסמן פריט כבוצע") מקצרות מאוד את מעגל השיפור.</li>
+        <li><strong>בודקים על מכשיר אמיתי</strong> - מחברים iPhone פיזי כדי לוודא שהכל עובד מחוץ לסימולטור.</li>
+      </ol>
+
+      <h2>מה צריך כדי לפרסם ל-App Store</h2>
+      <p>כשהאפליקציה מוכנה, הפרסום בפועל דורש כמה שלבים נוספים: הרשמה לתוכנית <strong>Apple Developer</strong> (בתשלום שנתי), הגדרת פרטי האפליקציה ב-App Store Connect (שם, תיאור, צילומי מסך, מדיניות פרטיות), ותהליך בדיקה של אפל לפני שהאפליקציה עולה בפועל לחנות. שווה גם להכיר את <strong>TestFlight</strong> - כלי של אפל שמאפשר להפיץ גרסת בדיקה למשתמשים אמיתיים לפני ההשקה הרשמית.</p>
+
+      <h2>מתי כדאי ללמוד את זה בעצמכם, ומתי להביא מישהו</h2>
+      <p>אם יש לכם רעיון לאפליקציה פשוטה וזמן ללמוד - AI בתוך Xcode הופך את זה לנגיש הרבה יותר ממה שהיה. אם מדובר באפליקציה מורכבת יותר (תשלומים, התחברות משתמשים, שרת אחורי) או שאין לכם זמן לעקומת הלמידה - שווה ליווי מקצועי שיחסוך זמן וטעויות, במיוחד סביב הגשה ל-App Store שיש לה לא מעט כללים ודרישות.</p>
+
+      <h2>שאלות נפוצות</h2>
+      <h3>אפשר לבנות אפליקציה ל-iPhone בלי מק?</h3>
+      <p>לא באמת - Xcode רץ רק על macOS. יש שירותי "מק בענן" שמאפשרים גישה מרחוק למחשב Mac וירטואלי, אבל הדרך הישירה והפשוטה היא מחשב Mac פיזי.</p>
+
+      <h3>כמה זמן לוקח לבנות אפליקציה ראשונה?</h3>
+      <p>אפליקציה פשוטה עם מסך אחד או שניים - ימים ספורים עם ליווי נכון, כולל למידה של הבסיס. אפליקציה מורכבת יותר יכולה לקחת שבועות עד חודשים, תלוי בהיקף.</p>
+
+      <h3>האם AI כותב את כל האפליקציה לבד?</h3>
+      <p>הוא יכול לכתוב חלק ניכר מהקוד, אבל עדיין צריך שיקול דעת אנושי - להבין מה נכון לחוויית המשתמש, לבדוק שהכל עובד נכון על מכשיר אמיתי, ולקבל החלטות מוצר שה-AI לא יכול לקבל לבד.</p>
+
+      <h3>כמה עולה לפרסם אפליקציה ב-App Store?</h3>
+      <p>חשבון Apple Developer עולה תשלום שנתי קבוע (סכום מתעדכן מעת לעת אצל אפל) - זה בנוסף לכל עלות פיתוח, ולא תלוי במספר האפליקציות שמפרסמים תחת אותו חשבון.</p>
+
+      <p class="dim">יש לכם רעיון לאפליקציה ורוצים ליווי מהרעיון ועד ה-App Store? <a href="../contact.html">בואו נדבר</a>.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>עידן AI - מדריכים ואוטומציה בעברית</div>
+    <div><a href="../contact.html">צור קשר</a> · <a href="index.html">מדריכים</a> · <a href="../about.html">עליי</a></div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>

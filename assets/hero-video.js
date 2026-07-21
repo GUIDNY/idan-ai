@@ -4,15 +4,22 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!video || !still) return;
 
   const SEEN_KEY = "aidanHeroIntroSeen";
+  const isMobile = window.matchMedia("(max-width: 800px)").matches;
+
+  function showStillInstantly() {
+    still.style.transition = "none";
+    still.classList.add("visible");
+    video.style.display = "none";
+    video.removeAttribute("autoplay");
+  }
 
   let alreadySeen = false;
   try { alreadySeen = localStorage.getItem(SEEN_KEY) === "true"; } catch (e) {}
 
-  if (alreadySeen) {
-    still.style.transition = "none";
-    still.style.opacity = "0.4";
-    video.style.display = "none";
-    video.removeAttribute("autoplay");
+  // Mobile autoplay is unreliable across browsers/data-saver modes, so we
+  // skip the video entirely there and always show the crisp still image.
+  if (isMobile || alreadySeen) {
+    showStillInstantly();
     return;
   }
 
