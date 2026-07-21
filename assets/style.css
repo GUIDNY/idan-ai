@@ -85,6 +85,23 @@ header {
   color: transparent;
 }
 
+.logo-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.about-badge {
+  width: 280px;
+  max-width: 70vw;
+  height: auto;
+  border-radius: 16px;
+  margin: 0 auto 24px;
+  box-shadow: 0 0 70px -12px var(--glow-purple), 0 0 34px -8px var(--glow-cyan);
+}
+
 .nav-links {
   display: flex;
   gap: 28px;
