@@ -209,6 +209,8 @@ header {
   color: transparent;
 }
 
+.hero-h1-spaced { margin-top: 26px; }
+
 .hero h1 .grad {
   background: linear-gradient(90deg, var(--accent), var(--accent2));
   -webkit-background-clip: text;
