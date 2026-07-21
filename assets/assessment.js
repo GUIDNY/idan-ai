@@ -53,11 +53,29 @@ document.addEventListener("DOMContentLoaded", () => {
     noai: "ליווי להטמעת AI בעבודה היומיומית"
   };
 
+  const SOLUTION_EXAMPLES = {
+    service: "לדוגמה: לקוח שולח הודעה בוואטסאפ בשעה 23:00 ומקבל מיד תשובה על מדיניות ההחזרות - ורק אם צריך, זה עובר לנציג אנושי בבוקר.",
+    leads: "לדוגמה: כל פנייה חדשה מדף הנחיתה מקבלת ציון אוטומטי לפי תקציב ודחיפות, כך שהצוות יודע במי לטפל קודם.",
+    content: "לדוגמה: במקום לשבת מול דף ריק, מקבלים טיוטה ראשונה לפוסט או למייל שיווקי תוך דקה, ורק מלטשים אותה.",
+    repetitive: "לדוגמה: תהליך שלוקח 20 דקות ידניות בכל פעם (כמו עדכון טבלה או שליחת אישור) רץ לבד ברקע.",
+    inventory: "לדוגמה: כשפריט מסוים יורד מתחת לכמות מסוימת, נשלחת התראה אוטומטית לפני שנגמר המלאי בפועל.",
+    reports: "לדוגמה: במקום לרכז נתונים ידנית כל שבוע ב-Excel, מקבלים דוח מסודר שנבנה אוטומטית מהמידע הקיים.",
+    presence: "לדוגמה: עמוד נחיתה פשוט עם טופס/צ'אט שעונה מיידית - כך פנייה לא הולכת לאיבוד רק כי אין מי שיענה עכשיו.",
+    noai: "לדוגמה: לפני שבונים מערכת שלמה, לומדים להשתמש נכון ב-Claude או ChatGPT למשימות היומיומיות - הרבה פעמים זה כבר חוסך שעות."
+  };
+
   const GOAL_FALLBACK_SOLUTION = {
     time: "אוטומציה לתהליך העבודה החוזר",
     sales: "מערכת CRM לניהול וניקוד לידים",
     service: "צ'אטבוט / סוכן AI לשירות לקוחות",
     cost: "אוטומציה לתהליך העבודה החוזר"
+  };
+
+  const GOAL_FALLBACK_EXAMPLE = {
+    time: SOLUTION_EXAMPLES.repetitive,
+    sales: SOLUTION_EXAMPLES.leads,
+    service: SOLUTION_EXAMPLES.service,
+    cost: SOLUTION_EXAMPLES.repetitive
   };
 
   function updateCounter() {
@@ -169,7 +187,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const painsByWeight = pains.slice().sort((a, b) => (PAIN_WEIGHTS[b] || 0) - (PAIN_WEIGHTS[a] || 0));
 
-      const topSolution = SOLUTION_LABELS[painsByWeight[0]] || GOAL_FALLBACK_SOLUTION[goal] || "ליווי להטמעת AI מותאם לעסק שלכם";
+      const topKey = painsByWeight[0] && SOLUTION_LABELS[painsByWeight[0]] ? painsByWeight[0] : null;
+      const topSolution = (topKey && SOLUTION_LABELS[topKey]) || GOAL_FALLBACK_SOLUTION[goal] || "ליווי להטמעת AI מותאם לעסק שלכם";
+      const topExample = (topKey && SOLUTION_EXAMPLES[topKey]) || GOAL_FALLBACK_EXAMPLE[goal] || "";
 
       const recs = [];
       if (GOAL_TIPS[goal]) recs.push(GOAL_TIPS[goal]);
@@ -183,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("res-score").textContent = score;
       document.getElementById("res-level").textContent = level;
       document.getElementById("top-solution-name").textContent = topSolution;
+      document.getElementById("top-solution-example").textContent = topExample;
       const list = document.getElementById("res-list");
       list.innerHTML = "";
       recs.forEach((r) => {

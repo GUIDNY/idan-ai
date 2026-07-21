@@ -1,0 +1,77 @@
+<title>דמו: צ'אטבוט שירות לקוחות | עידן AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="דמו אינטראקטיבי לצ'אטבוט שירות לקוחות - שאלו שאלה וקבלו תשובה אמיתית מהבוט, לדוגמה עבור עסק בדיוני.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">עידן <span>AI</span></a>
+    <nav class="nav-links">
+      <a href="index.html">בית</a>
+      <a href="guides/index.html">מדריכים</a>
+      <a href="work.html">דוגמאות</a>
+      <a href="about.html">עליי</a>
+      <a href="contact.html">צור קשר</a>
+    </nav>
+    <a href="assessment.html" class="nav-cta">בדיקת התאמה חינם</a>
+    <button class="menu-toggle" aria-label="תפריט">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:16px;">
+    <div class="container">
+      <span class="eyebrow">דמו אינטראקטיבי</span>
+      <h1>נסו לדבר עם <span class="grad">בוט שירות לקוחות</span></h1>
+      <p>זה בוט לדוגמה עבור "סטייל" - חנות בגדים בדיונית - שבניתי כדי להמחיש איך זה עובד. שאלו אותו על שעות פתיחה, החזרות או מעקב הזמנה, ותקבלו תשובה אמיתית ממנו עכשיו - לא הקלטה.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="chat-wrap">
+        <div class="chat-window">
+          <div class="chat-header">
+            <div class="avatar">🤖</div>
+            <div>
+              <b>הבוט של "סטייל" (דמו)</b>
+              <span>עסק בדיוני - להמחשה בלבד</span>
+            </div>
+          </div>
+          <div class="chat-messages" id="chat-messages"></div>
+          <div class="quick-replies" id="quick-replies">
+            <button type="button" class="quick-reply-btn" data-q="מה שעות הפתיחה שלכם?">שעות פתיחה?</button>
+            <button type="button" class="quick-reply-btn" data-q="מה מדיניות ההחזרות שלכם?">מדיניות החזרות?</button>
+            <button type="button" class="quick-reply-btn" data-q="איך אני עוקב אחרי ההזמנה שלי?">מעקב הזמנה?</button>
+            <button type="button" class="quick-reply-btn" data-q="אני רוצה לדבר עם נציג אנושי">לדבר עם נציג</button>
+          </div>
+          <form class="chat-input-row" id="chat-form">
+            <input type="text" id="chat-input" placeholder="כתבו שאלה..." autocomplete="off">
+            <button type="submit">שליחה</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="callout" style="max-width:560px; margin:30px auto 0;">
+        <strong>איך זה עובד:</strong> הבוט הזה מבוסס על זיהוי מילות מפתח - לא מודל שפה מלא - וזה בכוונה: זה בדיוק סוג הבוט הפשוט והזול שאפשר לבנות תוך ימים ספורים ולחבר למידע האמיתי של העסק שלכם (שעות, מדיניות, קישור למעקב הזמנות אמיתי).
+      </div>
+
+      <p style="text-align:center; margin-top:24px;">
+        <a href="assessment.html" class="btn btn-primary">בדקו אם זה מתאים לעסק שלכם</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>עידן AI - מדריכים ואוטומציה בעברית</div>
+    <div><a href="contact.html">צור קשר</a> · <a href="guides/index.html">מדריכים</a> · <a href="about.html">עליי</a></div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/demo.js"></script>
