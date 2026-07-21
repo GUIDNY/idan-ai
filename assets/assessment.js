@@ -22,25 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     other: "כמעט בכל עסק יש תהליכים אדמיניסטרטיביים שאפשר לקצר משמעותית עם AI."
   };
 
-  const GOAL_TIPS = {
-    time: "המטרה המרכזית שלכם היא לחסוך זמן - כדאי להתחיל בתהליך אחד קטן וברור שחוזר על עצמו הרבה, ולתת לו אוטומציה ראשונה.",
-    sales: "כדי להגדיל מכירות ולידים, הכי משתלם להתחיל במיון וניקוד לידים אוטומטי כדי שאף פנייה חמה לא תלך לאיבוד.",
-    service: "לשיפור שירות הלקוחות, סוכן AI שעונה מיידית על השאלות הנפוצות משחרר את הצוות למקרים שבאמת דורשים תשומת לב.",
-    cost: "להורדת עלויות תפעול, הכי משתלם למפות תהליך ידני שחוזר על עצמו הרבה ולתרגם אותו לאוטומציה שרצה לבד."
-  };
-
   const PAIN_WEIGHTS = { service: 15, leads: 15, content: 10, repetitive: 15, inventory: 12, reports: 10, presence: 8, noai: 10 };
-
-  const PAIN_TIPS = {
-    service: "כדאי להתחיל בסוכן AI/צ'אטבוט שעונה על השאלות החוזרות, ומעביר לנציג רק מה שבאמת דורש שיקול דעת.",
-    leads: "מערכת פשוטה לניקוד וסינון לידים אוטומטי תבטיח שהלידים החמים לא ייפלו בין הכיסאות.",
-    content: "AI יכול לייצר לכם טיוטות ראשונות לתוכן שיווקי, ולחסוך את שלב 'הדף הריק'.",
-    repetitive: "שווה למפות תהליך צר וברור אחד ולהתחיל ממנו, לפני שמרחיבים לתהליכים נוספים.",
-    inventory: "אוטומציה בסיסית למעקב מלאי והתראות על מלאי נמוך יכולה לחסוך הרבה כאבי ראש ואי-הבנות.",
-    reports: "AI יכול לרכז נתונים ולבנות דוח תמציתי אוטומטית, במקום לעבור על גיליונות ידנית כל שבוע.",
-    presence: "עמוד נחיתה או אתר בסיסי עם מענה אוטומטי ליצירת קשר יכול לשפר משמעותית את הרושם הראשוני מול לקוחות פוטנציאליים.",
-    noai: "אפילו שימוש בסיסי בכלים כמו Claude או ChatGPT בעבודה היומיומית כבר יכול לחסוך שעות בשבוע."
-  };
 
   const SOLUTION_LABELS = {
     service: "צ'אטבוט / סוכן AI לשירות לקוחות",
@@ -175,51 +157,42 @@ document.addEventListener("DOMContentLoaded", () => {
       const goal = data.get("goal");
       const pains = data.getAll("pain");
 
-      let score = 15;
-      pains.forEach((p) => { score += PAIN_WEIGHTS[p] || 0; });
-      score = Math.min(score, 95);
-
-      let level;
-      if (score < 30) level = "כבר די מסודרים - יש עידון קל לעשות";
-      else if (score < 55) level = "יש הזדמנות ברורה לשיפור";
-      else if (score < 80) level = "פוטנציאל אוטומציה גבוה";
-      else level = "פוטנציאל אוטומציה גבוה מאוד";
-
       const painsByWeight = pains.slice().sort((a, b) => (PAIN_WEIGHTS[b] || 0) - (PAIN_WEIGHTS[a] || 0));
 
-      const topKey = painsByWeight[0] && SOLUTION_LABELS[painsByWeight[0]] ? painsByWeight[0] : null;
-      const topSolution = (topKey && SOLUTION_LABELS[topKey]) || GOAL_FALLBACK_SOLUTION[goal] || "ליווי להטמעת AI מותאם לעסק שלכם";
-      const topExample = (topKey && SOLUTION_EXAMPLES[topKey]) || GOAL_FALLBACK_EXAMPLE[goal] || "";
+      let needs = painsByWeight
+        .filter((p) => SOLUTION_LABELS[p])
+        .map((p) => ({ name: SOLUTION_LABELS[p], example: SOLUTION_EXAMPLES[p] }));
 
-      const recs = [];
-      if (GOAL_TIPS[goal]) recs.push(GOAL_TIPS[goal]);
-      if (INDUSTRY_TIPS[industry]) recs.push(INDUSTRY_TIPS[industry]);
-      painsByWeight
-        .filter((p) => PAIN_TIPS[p])
-        .slice(0, 2)
-        .forEach((p) => recs.push(PAIN_TIPS[p]));
-      if (recs.length < 2) recs.push("אתם כבר משתמשים בכלים חכמים - יש עדיין מקום לייעל תהליכים ספציפיים. בואו נדבר על זה.");
+      if (needs.length === 0) {
+        needs = [{
+          name: GOAL_FALLBACK_SOLUTION[goal] || "ליווי להטמעת AI מותאם לעסק שלכם",
+          example: GOAL_FALLBACK_EXAMPLE[goal] || ""
+        }];
+      }
 
-      document.getElementById("res-score").textContent = score;
-      document.getElementById("res-level").textContent = level;
-      document.getElementById("top-solution-name").textContent = topSolution;
-      document.getElementById("top-solution-example").textContent = topExample;
-      const list = document.getElementById("res-list");
+      document.getElementById("res-context").textContent = INDUSTRY_TIPS[industry] || "";
+
+      const list = document.getElementById("res-needs");
       list.innerHTML = "";
-      recs.forEach((r) => {
+      needs.forEach((need) => {
         const li = document.createElement("li");
-        li.textContent = r;
+        const b = document.createElement("b");
+        b.textContent = `אתם צריכים: ${need.name}`;
+        li.appendChild(b);
+        li.appendChild(document.createTextNode(need.example));
         list.appendChild(li);
       });
 
+      const needsSummary = needs.map((n) => n.name).join(", ");
+
       const waText = encodeURIComponent(
-        `היי, מילאתי את בדיקת ההתאמה ל-AI באתר.\nשם: ${name}\nעסק/תחום: ${industry || "-"}\nגודל צוות: ${teamSize || "-"}\nמטרה מרכזית: ${goal || "-"}\nציון התאמה: ${score}\nההמלצה המרכזית: ${topSolution}\nאשמח לשיחה קצרה.`
+        `היי, מילאתי את בדיקת ההתאמה ל-AI באתר.\nשם: ${name}\nעסק/תחום: ${industry || "-"}\nגודל צוות: ${teamSize || "-"}\nמטרה מרכזית: ${goal || "-"}\nמה שנדרש: ${needsSummary}\nאשמח לשיחה קצרה.`
       );
       document.getElementById("res-whatsapp").href = `https://wa.me/${OWNER_WHATSAPP}?text=${waText}`;
 
       const mailSubject = encodeURIComponent("בקשת שיחה - בדיקת התאמה ל-AI");
       const mailBody = encodeURIComponent(
-        `שם: ${name}\nאימייל: ${email}\nטלפון: ${phone || "-"}\nעסק/תחום: ${industry || "-"}\nגודל צוות: ${teamSize || "-"}\nמטרה מרכזית: ${goal || "-"}\nציון התאמה: ${score}\nההמלצה המרכזית: ${topSolution}`
+        `שם: ${name}\nאימייל: ${email}\nטלפון: ${phone || "-"}\nעסק/תחום: ${industry || "-"}\nגודל צוות: ${teamSize || "-"}\nמטרה מרכזית: ${goal || "-"}\nמה שנדרש: ${needsSummary}`
       );
       document.getElementById("res-mail").href = `mailto:bd12123@gmail.com?subject=${mailSubject}&body=${mailBody}`;
 
