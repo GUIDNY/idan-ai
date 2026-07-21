@@ -1,0 +1,95 @@
+<title>דמו: הודעה שהופכת לליד ב-CRM | עידן AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="דמו אינטראקטיבי - כתבו הודעה כמו שלקוח היה כותב, וראו אותה הופכת מיד לליד מסודר עם תקציב, תחום עניין ורמת חום, בלוח CRM חי.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">עידן <span>AI</span></a>
+    <nav class="nav-links">
+      <a href="index.html">בית</a>
+      <a href="guides/index.html">מדריכים</a>
+      <a href="work.html">דוגמאות</a>
+      <a href="about.html">עליי</a>
+      <a href="contact.html">צור קשר</a>
+    </nav>
+    <a href="assessment.html" class="nav-cta">בדיקת התאמה חינם</a>
+    <button class="menu-toggle" aria-label="תפריט">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:16px;">
+    <div class="container">
+      <span class="eyebrow">דמו אינטראקטיבי</span>
+      <h1>מהודעה לא מסודרת <span class="grad">לליד מסודר</span> - תוך שניות</h1>
+      <p>כתבו הודעה כמו שלקוח אמיתי היה כותב (או בחרו דוגמה מוכנה), ותראו איך היא הופכת מיד לכרטיס ליד מסודר בלוח CRM - עם תקציב, תחום עניין ורמת חום.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="tool-wrap" style="max-width:720px;">
+        <div class="tool-card">
+          <h2 style="margin-top:0;">הודעה נכנסת מלקוח</h2>
+          <p class="step-sub">בחרו דוגמה מוכנה, או כתבו הודעה משלכם.</p>
+          <div class="quick-replies" style="padding:0 0 16px;">
+            <button type="button" class="quick-reply-btn" id="preset-1">לקוח נדל"ן חם</button>
+            <button type="button" class="quick-reply-btn" id="preset-2">בדיקת מחיר, קר</button>
+            <button type="button" class="quick-reply-btn" id="preset-3">רכב, דחוף</button>
+            <button type="button" class="quick-reply-btn" id="preset-4">שאלה כללית</button>
+          </div>
+          <form id="crm-form">
+            <div class="field">
+              <textarea id="crm-input" rows="4" placeholder="לדוגמה: היי, ראיתי את המודעה על הדירה, מתעניין, התקציב שלי בערך 2 מיליון, אפשר לחזור אליי היום?" style="width:100%; background:var(--bg); border:1px solid var(--border); color:var(--text); padding:13px 16px; border-radius:10px; font-family:inherit; font-size:1rem; resize:vertical;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">שלחו את ההודעה →</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="crm-scanning" class="scanning" style="display:none;">
+        <div class="spinner"></div>
+        <p>מנתח את ההודעה ובונה כרטיס ליד...</p>
+      </div>
+
+      <h2 class="section-head" style="margin-top:50px;">לוח הלידים (CRM)</h2>
+      <div class="crm-board" id="crm-board">
+        <div class="crm-col">
+          <div class="crm-col-title">חדש</div>
+          <div class="crm-col-cards" id="col-new"></div>
+        </div>
+        <div class="crm-col">
+          <div class="crm-col-title">בטיפול</div>
+          <div class="crm-col-cards" id="col-progress"></div>
+        </div>
+        <div class="crm-col">
+          <div class="crm-col-title">נסגר</div>
+          <div class="crm-col-cards" id="col-done"></div>
+        </div>
+      </div>
+
+      <div class="callout" style="max-width:720px; margin:36px auto 0;">
+        <strong>איך זה עובד:</strong> הדמו מזהה מילות מפתח, מספרים ותבניות טקסט פשוטות (לא מודל שפה מלא) - אבל זה בדיוק הרעיון שאפשר לממש: הודעה חופשית מלקוח נכנסת, והמערכת שולפת ממנה את הפרטים החשובים במקום שמישהו יעבור על כל הודעה ידנית.
+      </div>
+
+      <p style="text-align:center; margin-top:24px;">
+        <a href="assessment.html" class="btn btn-primary">בדקו אם זה מתאים לעסק שלכם</a>
+      </p>
+      <p style="text-align:center; margin-top:14px; color:var(--text-dim);">רוצים לראות עוד דוגמה? <a href="demo.html" style="color:var(--accent2);">דמו: צ'אטבוט שירות לקוחות</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>עידן AI - מדריכים ואוטומציה בעברית</div>
+    <div><a href="contact.html">צור קשר</a> · <a href="guides/index.html">מדריכים</a> · <a href="about.html">עליי</a></div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/demo-crm.js"></script>
