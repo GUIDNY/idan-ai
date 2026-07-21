@@ -1,0 +1,96 @@
+<title>פרומפטים מוכנים: תגרמו ל-Claude להכין לכם פאץ' RTL | עידן AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="במקום להתקין פאץ' של מישהו אחר - פרומפטים מוכנים להעתקה שגורמים ל-Claude להכין עבורכם פאץ' RTL אישי ל-Claude Desktop, עם התקנה בלחיצה אחת והכל הפיך.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+
+<header>
+  <div class="container nav">
+    <a href="../index.html" class="logo">עידן <span>AI</span></a>
+    <nav class="nav-links">
+      <a href="../index.html">בית</a>
+      <a href="index.html">מדריכים</a>
+      <a href="../about.html">עליי</a>
+      <a href="../contact.html">צור קשר</a>
+    </nav>
+    <a href="../assessment.html" class="nav-cta">בדיקת התאמה חינם</a>
+    <button class="menu-toggle" aria-label="תפריט">☰</button>
+  </div>
+</header>
+
+<main>
+  <div class="article-head">
+    <div class="container">
+      <div class="breadcrumbs"><a href="index.html">מדריכים</a> / פרומפטים לפאץ' RTL</div>
+      <h1>פרומפטים מוכנים: תגרמו ל-Claude להכין לכם פאץ' RTL</h1>
+      <div class="meta">
+        <span>מאת עידן גינדי</span>
+        <span>עודכן יולי 2026</span>
+        <span>זמן קריאה: 4 דקות</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <article class="article-body">
+      <p>ב<a href="claude-desktop-rtl.html">מדריך הקודם</a> עברנו על פתרונות RTL קיימים ל-Claude Desktop - פאצ'ים קהילתיים וערכות נושא. יש גם דרך נוספת, ישירה יותר: במקום להתקין פאץ' שמישהו אחר כתב, אפשר פשוט לבקש מ-Claude עצמו (במצב Cowork) להכין פאץ' אישי בשבילכם - הוא כותב את הקוד, ואתם רק מדביקים פקודה אחת בטרמינל.</p>
+
+      <div class="callout">
+        <strong>חשוב לדעת:</strong> Claude מכין את כל הקבצים (ה-CSS + הסקריפט) לבד. את פקודת ההרצה האחרונה תצטרכו להדביק ב-Terminal בעצמכם - Claude חסום מלהקליד ל-Terminal מטעמי אבטחה. זו הדבקה אחת בלבד, ואתם רואים בדיוק מה היא עושה לפני שמריצים אותה.
+      </div>
+
+      <h2>1. הפרומפט הראשי - "תכין לי הכל"</h2>
+      <pre><code>תכין לי פאץ' שהופך את כל הממשק של Claude Desktop ל-RTL (תמיכה בעברית).
+תיצור את קובץ ה-CSS ואת סקריפט ההתקנה, תשים אותם באותה תיקייה,
+ותן לי פקודה אחת מוכנה להדבקה ב-Terminal שסוגרת את Claude, מריצה
+את הפאץ', ומדפיסה סיום. שהכל יהיה הפיך עם גיבוי אוטומטי.</code></pre>
+      <p class="dim"><strong>מה זה עושה:</strong> Claude בונה את שני הקבצים ונותן לכם שורת הרצה אחת. אתם רק מדביקים אותה ב-Terminal.</p>
+
+      <h2>2. אם Claude לא יודע איפה מותקן Claude Desktop</h2>
+      <pre><code>Claude Desktop מותקן אצלי בנתיב הרגיל (Applications/Claude.app).
+תתאים את הסקריפט לנתיב הזה.</code></pre>
+      <p class="dim"><strong>מה זה עושה:</strong> מוודא שהסקריפט מצביע על המקום הנכון.</p>
+
+      <h2>3. אם משהו נראה שבור אחרי הפאץ'</h2>
+      <pre><code>אחרי הפאץ' יש אלמנט שלא מתיישר נכון —
+[תיאור קצר של מה שבור, למשל: "התפריט הצדדי עדיין משמאל"].
+תתקן לי את ה-CSS.</code></pre>
+      <p class="dim"><strong>מה זה עושה:</strong> Claude מדייק את ה-CSS לפי מה שאתם מתארים. אפשר לצרף גם צילום מסך.</p>
+
+      <h2>4. לבטל את הפאץ'</h2>
+      <pre><code>תן לי את הפקודה לבטל את פאץ' ה-RTL ולחזור למקור.</code></pre>
+      <p class="dim"><strong>מה זה עושה:</strong> מחזיר את הגרסה המקורית מהגיבוי (<code>--restore</code>).</p>
+
+      <h2>5. אחרי עדכון של Claude שהחזיר ל-LTR</h2>
+      <pre><code>Claude התעדכן וחזר להיות LTR.
+תן לי שוב את פקודת ההרצה כדי להחיל את הפאץ' מחדש.</code></pre>
+      <p class="dim"><strong>מה זה עושה:</strong> מפעיל את הסקריפט הקיים שוב - צריך לחזור על זה אחרי כל עדכון של Claude Desktop.</p>
+
+      <h2>טיפ: איך לנסח פרומפט טוב ל-Claude</h2>
+      <ul>
+        <li><strong>תגידו את המטרה, לא את הפתרון</strong> - "תהפוך את הממשק ל-RTL", לא "תערוך את app.asar".</li>
+        <li><strong>תנו הקשר</strong> - מערכת הפעלה (Mac/Windows), מה מותקן (Node.js), ואיפה.</li>
+        <li><strong>בקשו פעולה אחת מוכנה</strong> - "תן לי פקודה אחת להדבקה" תמיד עדיף על הרבה שלבים ידניים.</li>
+        <li><strong>תבקשו שיהיה הפיך</strong> - "עם גיבוי, שאפשר לבטל".</li>
+        <li><strong>אם נתקעתם - צלמו מסך</strong> - Claude יכול לראות את השגיאה ולתקן בעצמו.</li>
+      </ul>
+
+      <div class="callout warn">
+        <strong>לפני שמריצים כל פקודה שמודל AI כותב לכם</strong> - קראו אותה, ווודאו שאתם מבינים מה היא עושה, ורק אז הדביקו ב-Terminal. זה נכון לכל פקודה, לא רק לפאץ' הזה.
+      </div>
+
+      <p class="dim">רוצים ללמוד להשתמש ב-Claude ובכלי AI אחרים בצורה יעילה יותר בעבודה שלכם? <a href="../contact.html">בואו נדבר</a>.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>עידן AI - מדריכים ואוטומציה בעברית</div>
+    <div><a href="../contact.html">צור קשר</a> · <a href="index.html">מדריכים</a> · <a href="../about.html">עליי</a></div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>

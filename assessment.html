@@ -1,0 +1,207 @@
+<title>בדיקת התאמה ל-AI לעסק שלכם | עידן AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="בדיקת התאמה חינמית - מלאו כמה פרטים על העסק שלכם וקבלו מיד ציון התאמה והמלצות מותאמות ליישום AI ואוטומציה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">עידן <span>AI</span></a>
+    <nav class="nav-links">
+      <a href="index.html">בית</a>
+      <a href="guides/index.html">מדריכים</a>
+      <a href="about.html">עליי</a>
+      <a href="contact.html">צור קשר</a>
+    </nav>
+    <a href="assessment.html" class="nav-cta">בדיקת התאמה חינם</a>
+    <button class="menu-toggle" aria-label="תפריט">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:20px;">
+    <div class="container">
+      <span class="eyebrow">בדיקת התאמה חינמית · 2 דקות</span>
+      <h1>כמה <span class="grad">מוכן ל-AI</span> העסק שלכם?</h1>
+      <p>כמה שאלות קצרות - וציון התאמה עם המלצות מותאמות אישית מופיע מיד על המסך, בלי לחכות למייל.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="tool-wrap">
+        <div class="progress-track">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <p class="step-counter" id="step-counter">שלב 1 מתוך 4</p>
+
+        <div class="tool-card">
+          <form id="assessment-form" novalidate>
+
+            <div class="step">
+              <h2>קצת עליכם</h2>
+              <p class="step-sub">כדי שנוכל לחזור אליכם עם ההמלצות.</p>
+              <div class="field">
+                <label for="f-name">שם מלא</label>
+                <input type="text" id="f-name" name="name" required>
+              </div>
+              <div class="field">
+                <label for="f-email">אימייל</label>
+                <input type="email" id="f-email" name="email" required>
+              </div>
+              <div class="field">
+                <label for="f-phone">טלפון (לא חובה)</label>
+                <input type="tel" id="f-phone" name="phone">
+              </div>
+              <div class="step-actions">
+                <span></span>
+                <button type="button" class="btn btn-primary js-next">הבא</button>
+              </div>
+            </div>
+
+            <div class="step">
+              <h2>קצת על העסק</h2>
+              <p class="step-sub">זה עוזר להתאים את ההמלצות לתחום שלכם.</p>
+              <div class="field">
+                <label for="f-industry">תחום העיסוק</label>
+                <select id="f-industry" name="industry" required>
+                  <option value="" disabled selected>בחרו תחום</option>
+                  <option value="retail">קמעונאות / מסחר</option>
+                  <option value="ecommerce">חנות אונליין / מסחר אלקטרוני</option>
+                  <option value="realestate">נדל"ן</option>
+                  <option value="professional">שירותים מקצועיים (עו"ד, רו"ח, ייעוץ)</option>
+                  <option value="marketing">שיווק / פרסום / סוכנות</option>
+                  <option value="food">מסעדנות / מזון</option>
+                  <option value="health">בריאות ורפואה</option>
+                  <option value="education">חינוך והדרכה</option>
+                  <option value="logistics">לוגיסטיקה / הובלות</option>
+                  <option value="construction">בנייה / קבלנות</option>
+                  <option value="nonprofit">עמותה / ארגון ללא מטרות רווח</option>
+                  <option value="other">אחר</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-team">גודל הצוות</label>
+                <select id="f-team" name="team_size" required>
+                  <option value="" disabled selected>בחרו גודל צוות</option>
+                  <option value="solo">עצמאי / יחיד</option>
+                  <option value="2-10">2-10 עובדים</option>
+                  <option value="11-50">11-50 עובדים</option>
+                  <option value="50+">מעל 50 עובדים</option>
+                </select>
+              </div>
+              <div class="step-actions">
+                <button type="button" class="btn btn-ghost js-back">חזרה</button>
+                <button type="button" class="btn btn-primary js-next">הבא</button>
+              </div>
+            </div>
+
+            <div class="step">
+              <h2>מה הכי חשוב לכם עכשיו?</h2>
+              <p class="step-sub">בחרו את המטרה המרכזית - זה יקבע את ההמלצה הראשונה שתקבלו.</p>
+              <div class="check-list">
+                <label class="check-item">
+                  <input type="radio" name="goal" value="time" required>
+                  <span>לחסוך זמן בעבודה השוטפת</span>
+                </label>
+                <label class="check-item">
+                  <input type="radio" name="goal" value="sales">
+                  <span>להגדיל מכירות ולידים</span>
+                </label>
+                <label class="check-item">
+                  <input type="radio" name="goal" value="service">
+                  <span>לשפר שירות ומענה ללקוחות</span>
+                </label>
+                <label class="check-item">
+                  <input type="radio" name="goal" value="cost">
+                  <span>להוריד עלויות תפעול</span>
+                </label>
+              </div>
+              <p class="field-error" id="err-goal" style="display:none;">בחרו אפשרות אחת כדי להמשיך</p>
+              <div class="step-actions">
+                <button type="button" class="btn btn-ghost js-back">חזרה</button>
+                <button type="button" class="btn btn-primary js-next">הבא</button>
+              </div>
+            </div>
+
+            <div class="step">
+              <h2>איפה אתם היום</h2>
+              <p class="step-sub">סמנו את כל מה שרלוונטי - אין תשובה נכונה או לא נכונה.</p>
+              <div class="check-list">
+                <label class="check-item">
+                  <input type="checkbox" name="pain" value="service">
+                  <span>שירות לקוחות מתבצע ידנית (טלפון/וואטסאפ) בלי מענה אוטומטי</span>
+                </label>
+                <label class="check-item">
+                  <input type="checkbox" name="pain" value="leads">
+                  <span>לידים חדשים מנוהלים בטבלה או בראש, בלי מערכת CRM מסודרת</span>
+                </label>
+                <label class="check-item">
+                  <input type="checkbox" name="pain" value="content">
+                  <span>תוכן שיווקי (פוסטים, מיילים) נכתב ידנית מאפס בכל פעם</span>
+                </label>
+                <label class="check-item">
+                  <input type="checkbox" name="pain" value="repetitive">
+                  <span>הרבה מהזמן שלכם הולך על משימות חוזרות ופרטניות</span>
+                </label>
+                <label class="check-item">
+                  <input type="checkbox" name="pain" value="inventory">
+                  <span>ניהול מלאי או הזמנות מתבצע ידנית, בלי מערכת אוטומטית</span>
+                </label>
+                <label class="check-item">
+                  <input type="checkbox" name="pain" value="reports">
+                  <span>דוחות וניתוח נתונים נאספים ונבנים ידנית (Excel וכו')</span>
+                </label>
+                <label class="check-item">
+                  <input type="checkbox" name="pain" value="presence">
+                  <span>אין נוכחות דיגיטלית מסודרת (אתר או פרופיל עסקי מעודכן)</span>
+                </label>
+                <label class="check-item">
+                  <input type="checkbox" name="pain" value="noai">
+                  <span>עדיין לא ניסיתם כלי AI (כמו Claude או ChatGPT) בעבודה השוטפת</span>
+                </label>
+              </div>
+              <div class="step-actions">
+                <button type="button" class="btn btn-ghost js-back">חזרה</button>
+                <button type="submit" class="btn btn-primary">קבלו את הציון שלי</button>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="scanning">
+                <div class="spinner"></div>
+                <p>סורק את התשובות שלכם ובונה המלצות מותאמות...</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="result-score">
+                <b id="res-score">0</b>
+                <div class="level" id="res-level"></div>
+              </div>
+              <ul class="result-list" id="res-list"></ul>
+              <div class="result-ctas">
+                <a href="#" id="res-whatsapp" target="_blank" rel="noopener" class="btn btn-primary">לשיחה קצרה בוואטסאפ</a>
+                <a href="#" id="res-mail" class="btn btn-secondary">שלחו לי את זה גם במייל</a>
+              </div>
+              <p class="disclaimer">ההערכה מבוססת על התשובות שלכם ומיועדת לתת כיוון ראשוני - לא תחליף לשיחת אבחון מלאה.</p>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>עידן AI - מדריכים ואוטומציה בעברית</div>
+    <div><a href="contact.html">צור קשר</a> · <a href="guides/index.html">מדריכים</a> · <a href="about.html">עליי</a></div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/assessment.js"></script>

@@ -1,0 +1,180 @@
+<title>איך הופכים את Claude Desktop לתמיכה מלאה ב-RTL | עידן AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="מדריך מעשי, שלב אחר שלב: איך להפוך את Claude Desktop למק ל-RTL מלא עם פאץ' CSS קטן, הפיך וכולל גיבוי אוטומטי.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+
+<header>
+  <div class="container nav">
+    <a href="../index.html" class="logo">עידן <span>AI</span></a>
+    <nav class="nav-links">
+      <a href="../index.html">בית</a>
+      <a href="index.html">מדריכים</a>
+      <a href="../about.html">עליי</a>
+      <a href="../contact.html">צור קשר</a>
+    </nav>
+    <a href="../assessment.html" class="nav-cta">בדיקת התאמה חינם</a>
+    <button class="menu-toggle" aria-label="תפריט">☰</button>
+  </div>
+</header>
+
+<main>
+  <div class="article-head">
+    <div class="container">
+      <div class="breadcrumbs"><a href="index.html">מדריכים</a> / Claude Desktop RTL</div>
+      <h1>איך הופכים את Claude Desktop ל-RTL (תמיכה מלאה בעברית) 🇮🇱</h1>
+      <div class="meta">
+        <span>מאת עידן גינדי</span>
+        <span>עודכן יולי 2026</span>
+        <span>זמן קריאה: 6 דקות · זמן ביצוע: כ-5 דקות</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <article class="article-body">
+      <p>אפליקציית Claude Desktop למק מציגה את הכל משמאל-לימין, מה שהופך שיחות בעברית ללא נוחות. במדריך הזה נהפוך את כל הממשק ל-RTL בעזרת פאץ' קטן של CSS. לוקח כ-5 דקות, וקל לביטול.</p>
+
+      <div class="callout warn">
+        <strong>לפני שמתחילים:</strong> זה שינוי לא-רשמי בקבצי האפליקציה. הוא בטוח והפיך (יוצרים גיבוי אוטומטי), אבל ייתכן שתצטרכו להריץ אותו שוב אחרי כל עדכון של Claude.
+      </div>
+
+      <h2>מה צריך</h2>
+      <ul>
+        <li>מק עם Claude Desktop מותקן (בתיקיית Applications).</li>
+        <li>Node.js מותקן. לבדיקה: פותחים Terminal ומריצים <code>node -v</code>. אם חוזר מספר גרסה - יש לכם. אם לא - מורידים מ-<a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a>.</li>
+      </ul>
+
+      <h2>שלב 1 - יוצרים את קובץ ה-CSS</h2>
+      <p>צרו קובץ בשם <code>claude-rtl.css</code> בתיקיית ההורדות (Downloads) עם התוכן הבא:</p>
+      <pre><code>/* Claude Desktop — RTL patch */
+
+html, body, #root, #app,
+[class*="App"], [class*="app_"] {
+  direction: rtl !important;
+}
+
+p, div, span, li, ul, ol,
+h1, h2, h3, h4, h5, h6,
+label, button, a {
+  text-align: start;
+}
+
+[contenteditable="true"], textarea,
+input[type="text"], input[type="search"],
+.ProseMirror,
+[class*="message"], [class*="Message"], [class*="prose"] {
+  unicode-bidi: plaintext !important;
+  text-align: start !important;
+}
+
+/* קוד, קישורים וטקסט אנגלי נשארים LTR */
+code, pre, kbd, samp, tt,
+[dir="ltr"],
+[class*="code"], [class*="Code"], [class*="hljs"] {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: plaintext;
+}</code></pre>
+
+      <h2>שלב 2 - יוצרים את סקריפט ההתקנה</h2>
+      <p>באותה תיקייה, צרו קובץ בשם <code>apply-rtl-patch.sh</code> עם התוכן הבא:</p>
+      <pre><code>#!/usr/bin/env bash
+set -euo pipefail
+
+APP="/Applications/Claude.app"
+RES="$APP/Contents/Resources"
+ASAR="$RES/app.asar"
+BACKUP="$RES/app.asar.backup"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &amp;&amp; pwd)"
+CSS="$SCRIPT_DIR/claude-rtl.css"
+
+# מצב שחזור: bash apply-rtl-patch.sh --restore
+if [[ "${1:-}" == "--restore" ]]; then
+  if [[ -f "$BACKUP" ]]; then
+    cp "$BACKUP" "$ASAR"; echo "✅ הגרסה המקורית שוחזרה. פתחו מחדש את Claude."
+  else
+    echo "⚠️  לא נמצא גיבוי — אין מה לשחזר."
+  fi
+  exit 0
+fi
+
+[[ -d "$APP" ]] || { echo "❌ Claude.app לא נמצא"; exit 1; }
+[[ -f "$CSS" ]] || { echo "❌ claude-rtl.css לא נמצא ליד הסקריפט"; exit 1; }
+command -v npx &gt;/dev/null 2&gt;&amp;1 || { echo "❌ צריך Node.js — nodejs.org"; exit 1; }
+
+echo "→ מגבה את app.asar..."
+[[ -f "$BACKUP" ]] || cp "$ASAR" "$BACKUP"
+
+WORK="$(mktemp -d)"
+echo "→ מחלץ..."
+npx --yes @electron/asar extract "$BACKUP" "$WORK"
+
+echo "→ מזריק את ה-CSS..."
+STYLE="&lt;style id=\"claude-rtl-patch\"&gt;$(cat "$CSS")&lt;/style&gt;"
+INJECTED=0
+while IFS= read -r -d '' html; do
+  grep -q "claude-rtl-patch" "$html" &amp;&amp; continue
+  if grep -q "&lt;/head&gt;" "$html"; then
+    python3 - "$html" "$STYLE" &lt;&lt;'PY'
+import sys
+path, style = sys.argv[1], sys.argv[2]
+html = open(path, encoding="utf-8").read().replace("&lt;/head&gt;", style + "&lt;/head&gt;", 1)
+open(path, "w", encoding="utf-8").write(html)
+PY
+    INJECTED=$((INJECTED+1))
+  fi
+done &lt; &lt;(find "$WORK" -name "*.html" -print0)
+
+echo "→ הוזרק ל-$INJECTED קבצים."
+echo "→ אורז מחדש..."
+npx --yes @electron/asar pack "$WORK" "$ASAR"
+rm -rf "$WORK"
+echo "✅ סיום! סגרו לגמרי את Claude (Cmd+Q) ופתחו מחדש."</code></pre>
+
+      <h2>שלב 3 - מריצים</h2>
+      <ol>
+        <li>סגרו את Claude לגמרי - <strong>Cmd+Q</strong> (לא רק את החלון).</li>
+        <li>פותחים Terminal.</li>
+        <li>מדביקים את השורה הבאה ולוחצים Enter:</li>
+      </ol>
+      <pre><code>cd ~/Downloads && bash apply-rtl-patch.sh</code></pre>
+      <p>מחכים להודעה <strong>✅ סיום</strong>, ואז פותחים מחדש את Claude.</p>
+      <p>זהו - הממשק אמור להיות עכשיו מימין-לשמאל. 🎉</p>
+
+      <h2>איך מבטלים</h2>
+      <p>אם משהו לא מוצא חן בעיניכם, מריצים:</p>
+      <pre><code>cd ~/Downloads && bash apply-rtl-patch.sh --restore</code></pre>
+      <p>זה מחזיר את הגרסה המקורית מהגיבוי.</p>
+
+      <h2>פתרון תקלות</h2>
+      <ul>
+        <li><strong>"command not found: node"</strong> - Node.js לא מותקן. הורידו מ-<a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a>.</li>
+        <li><strong>"No such file or directory"</strong> - שני הקבצים לא נמצאים בתיקייה שאליה נכנסתם. ודאו ששניהם ב-<code>~/Downloads</code> והריצו <code>ls *.sh *.css</code> כדי לבדוק.</li>
+        <li><strong>אחרי עדכון של Claude חזר להיות LTR</strong> - זה נורמלי. פשוט מריצים את הסקריפט שוב.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>רוצים לפתוח בלחיצה כפולה במקום Terminal?</strong> אפשר להפוך את הסקריפט לקובץ <code>.command</code>, אבל macOS יחסום אותו כ"מפתח לא מזוהה". במקרה כזה: קליק ימני ‹ Open, ואם אין כפתור Open - System Settings ‹ Privacy &amp; Security ‹ "Open Anyway".
+      </div>
+
+      <p class="dim">הפאץ' משנה רק CSS בתוך האפליקציה ולא נוגע בנתונים או בהגדרות. יוצר גיבוי אוטומטי ותמיד ניתן לשחזור.</p>
+
+      <h2>לא בא לכם לגעת ב-Terminal בעצמכם?</h2>
+      <p>יש גם דרך לגרום ל-<strong>Claude עצמו</strong> להכין לכם את שני הקבצים האלה ולתת פקודת הרצה מותאמת למחשב שלכם - ראו <a href="claude-rtl-prompts.html">פרומפטים מוכנים להעתקה</a>. יש גם פאצ'ים קהילתיים מוכנים מראש (לא מהאתר הזה) אם אתם מעדיפים לא לגעת בקוד בכלל - חפשו "claude-desktop-rtl-patch" בגיטהאב.</p>
+
+      <p class="dim">נתקעתם באמצע, או שיש אלמנט שלא מתיישר נכון אחרי הפאץ'? <a href="../contact.html">אפשר לדבר</a>.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>עידן AI - מדריכים ואוטומציה בעברית</div>
+    <div><a href="../contact.html">צור קשר</a> · <a href="index.html">מדריכים</a> · <a href="../about.html">עליי</a></div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>

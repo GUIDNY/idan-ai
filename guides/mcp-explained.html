@@ -1,0 +1,71 @@
+<title>MCP (Model Context Protocol) בהסבר פשוט | עידן AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MCP - הפרוטוקול שמאפשר ל-AI להתחבר לכלים ולנתונים שלכם, מוסבר בלי ז'רגון מיותר.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+
+<header>
+  <div class="container nav">
+    <a href="../index.html" class="logo">עידן <span>AI</span></a>
+    <nav class="nav-links">
+      <a href="../index.html">בית</a>
+      <a href="index.html">מדריכים</a>
+      <a href="../about.html">עליי</a>
+      <a href="../contact.html">צור קשר</a>
+    </nav>
+    <a href="../assessment.html" class="nav-cta">בדיקת התאמה חינם</a>
+    <button class="menu-toggle" aria-label="תפריט">☰</button>
+  </div>
+</header>
+
+<main>
+  <div class="article-head">
+    <div class="container">
+      <div class="breadcrumbs"><a href="index.html">מדריכים</a> / MCP בהסבר פשוט</div>
+      <h1>MCP (Model Context Protocol) בהסבר פשוט</h1>
+      <div class="meta">
+        <span>מאת עידן גינדי</span>
+        <span>עודכן יולי 2026</span>
+        <span>זמן קריאה: 5 דקות</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <article class="article-body">
+      <p>MCP, ראשי תיבות של <strong>Model Context Protocol</strong>, הוא סטנדרט פתוח שפיתחה אנתרופיק כדי לפתור בעיה מאוד מעשית: איך מודל שפה מתחבר לכלים, מסדי נתונים וקבצים חיצוניים - בלי שכל מפתח יצטרך להמציא את החיבור מחדש בכל פעם.</p>
+
+      <h2>הבעיה שהמצאה פתרה</h2>
+      <p>לפני MCP, כל חיבור בין AI לכלי חיצוני (מסד נתונים, מערכת CRM, תיקיית קבצים) היה בנוי בצורה מותאמת-אישית - קוד ייעודי לכל שילוב של מודל וכלי. זה יצר בעיה של <em>N מודלים כפול M כלים</em>: כל שילוב חדש דרש עבודת אינטגרציה מחדש.</p>
+
+      <h2>איך MCP פותר את זה</h2>
+      <p>MCP מגדיר "שפה משותפת" - פרוטוקול סטנדרטי - בין שני צדדים:</p>
+      <ul>
+        <li><strong>שרת MCP (MCP Server)</strong> - "עוטף" כלי או מקור מידע (למשל: מסד נתונים, מערכת קבצים, API של שירות חיצוני) וחושף אותו בצורה אחידה.</li>
+        <li><strong>לקוח MCP (MCP Client)</strong> - האפליקציה שבה אתם משתמשים (כמו Claude Desktop או Claude Code), שיודעת "לדבר" עם כל שרת MCP בלי קשר למי שכתב אותו.</li>
+      </ul>
+      <p>התוצאה: מי שבונה שרת MCP חדש לכלי מסוים - כל לקוח שתומך ב-MCP יכול להשתמש בו מיד, בלי אינטגרציה נפרדת.</p>
+
+      <h2>דוגמה מוחשית</h2>
+      <div class="callout">
+        במקום לבקש מ-Claude "תסתכל בקובץ הזה ותגיד לי מה כתוב בו" ולהעתיק-להדביק תוכן ידנית, שרת MCP לקבצים מאפשר ל-Claude לגשת ישירות לתיקייה שהרשיתם, לקרוא את הקבצים הרלוונטיים ולענות על סמך התוכן האמיתי והעדכני - בלי שלב ידני באמצע.
+      </div>
+
+      <h2>למה זה חשוב לעסקים</h2>
+      <p>עבור עסק, MCP הוא בעצם הדרך הסטנדרטית לחבר AI למידע הפנימי שלכם - מערכת ניהול לקוחות, טבלאות פנימיות, כלי תמיכה - בלי לבנות כל חיבור מאפס ובלי "להעתיק-להדביק" מידע רגיש לתוך צ'אט. זה גם אומר שאפשר להגביל בדיוק לאילו כלים ולאילו נתונים ל-AI תהיה גישה.</p>
+
+      <p class="dim">רוצים לחבר את ה-AI שאתם עובדים איתו לנתונים או לכלים הפנימיים של העסק שלכם? <a href="../contact.html">אפשר לבדוק ביחד איך עושים את זה נכון ובבטחה</a>.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>עידן AI - מדריכים ואוטומציה בעברית</div>
+    <div><a href="../contact.html">צור קשר</a> · <a href="index.html">מדריכים</a> · <a href="../about.html">עליי</a></div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
