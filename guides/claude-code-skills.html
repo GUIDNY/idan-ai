@@ -1,0 +1,71 @@
+<title>Skills ב-Claude Code: איך להפוך אותו למומחה בפרויקט שלכם | עידן AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="מה זה Skills ב-Claude Code, איך זה שונה מ-Hooks ו-Subagents, ואיך בונים חבילת הוראות שהופכת את Claude למומחה בתהליך העבודה שלכם.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+
+<header>
+  <div class="container nav">
+    <a href="../index.html" class="logo">עידן <span>AI</span></a>
+    <nav class="nav-links">
+      <a href="../index.html">בית</a>
+      <a href="index.html">מדריכים</a>
+      <a href="../work.html">דוגמאות</a>
+      <a href="../about.html">עליי</a>
+      <a href="../contact.html">צור קשר</a>
+    </nav>
+    <a href="../assessment.html" class="nav-cta">בדיקת התאמה חינם</a>
+    <button class="menu-toggle" aria-label="תפריט">☰</button>
+  </div>
+</header>
+
+<main>
+  <div class="article-head">
+    <div class="container">
+      <div class="breadcrumbs"><a href="index.html">מדריכים</a> / Skills ב-Claude Code</div>
+      <h1>Skills ב-Claude Code: איך להפוך אותו למומחה בפרויקט שלכם</h1>
+      <div class="meta">
+        <span>מאת עידן גינדי</span>
+        <span>עודכן יולי 2026</span>
+        <span>זמן קריאה: 5 דקות</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <article class="article-body">
+      <p><strong>Claude Code</strong> הוא Claude שרץ בטרמינל ועובד ישירות על בסיסי קוד. אבל לכל צוות יש דרך עבודה משלו - איך מריצים בדיקות, איך בונים פיצ'ר, אילו מוסכמות קוד נהוגות. <strong>Skills</strong> הוא המנגנון שמלמד את Claude Code את המוסכמות הספציפיות שלכם.</p>
+
+      <h2>מה זה בפועל</h2>
+      <p>Skill הוא תיקייה עם קובץ הוראות (<code>SKILL.md</code>) ש-Claude Code טוען לפי הצורך - כשהוא מזהה שהמשימה רלוונטית לאותו Skill. במקום להסביר בכל שיחה מחדש "אצלנו בונים פיצ'ר ב-Next.js ככה", ה-Skill כבר "יודע" את זה.</p>
+
+      <div class="callout">
+        <strong>איך מתקינים:</strong> יוצרים תיקייה תחת <code>.claude/skills/</code> בפרויקט (או <code>~/.claude/skills/</code> גלובלית), כותבים בה קובץ <code>SKILL.md</code> עם ההוראות, ומפעילים מחדש את Claude Code. תוך דקות אחדות ה-Skill פעיל.
+      </div>
+
+      <h2>Skills מול Hooks מול Subagents</h2>
+      <p>שלושת המנגנונים משלימים זה את זה, לא מתחרים:</p>
+      <ul>
+        <li><strong>Skills</strong> - נותן ידע ומומחיות חוזרת ("ככה עושים דבר X אצלנו").</li>
+        <li><strong><a href="claude-code-hooks.html">Hooks</a></strong> - נותן תגובות דטרמיניסטיות לאירועים ("תריץ פורמטר אחרי כל שמירה") - קוד קבוע, לא תלוי בפרשנות המודל.</li>
+        <li><strong><a href="claude-code-subagents.html">Subagents</a></strong> - נותן חלונות הקשר מבודדים ("תעביר את תת-המשימה הזו לסוכן נפרד").</li>
+      </ul>
+
+      <h2>למה זה משתלם</h2>
+      <p>בלי Skill, כל שיחה חדשה עם Claude Code מתחילה בלי ידע על ההקשר הארגוני שלכם. עם Skill מוגדר היטב, כל מפתח בצוות שמפעיל את Claude Code על הפרויקט מקבל את אותה "מומחיות" - עקביות גבוהה יותר, פחות הסברים חוזרים.</p>
+
+      <p class="dim">רוצים עזרה לבנות Skill ראשון לפרויקט או לצוות שלכם? <a href="../contact.html">בואו נדבר</a>.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>עידן AI - מדריכים ואוטומציה בעברית</div>
+    <div><a href="../contact.html">צור קשר</a> · <a href="index.html">מדריכים</a> · <a href="../about.html">עליי</a></div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>

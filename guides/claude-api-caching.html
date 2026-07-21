@@ -1,0 +1,70 @@
+<title>Prompt Caching ב-API של Claude בהסבר פשוט | עידן AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="מה זה Prompt Caching ב-API של Claude, איך זה חוסך עלויות וזמן תגובה, ומתי כדאי להשתמש בזה בפיתוח אפליקציות AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+
+<header>
+  <div class="container nav">
+    <a href="../index.html" class="logo">עידן <span>AI</span></a>
+    <nav class="nav-links">
+      <a href="../index.html">בית</a>
+      <a href="index.html">מדריכים</a>
+      <a href="../work.html">דוגמאות</a>
+      <a href="../about.html">עליי</a>
+      <a href="../contact.html">צור קשר</a>
+    </nav>
+    <a href="../assessment.html" class="nav-cta">בדיקת התאמה חינם</a>
+    <button class="menu-toggle" aria-label="תפריט">☰</button>
+  </div>
+</header>
+
+<main>
+  <div class="article-head">
+    <div class="container">
+      <div class="breadcrumbs"><a href="index.html">מדריכים</a> / Prompt Caching</div>
+      <h1>Prompt Caching ב-API של Claude בהסבר פשוט</h1>
+      <div class="meta">
+        <span>מאת עידן גינדי</span>
+        <span>עודכן יולי 2026</span>
+        <span>זמן קריאה: 4 דקות</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <article class="article-body">
+      <p>מי שבונה אפליקציה מעל ה-API של Claude ולא מכיר מונח אחד שכדאי להכיר: <strong>Prompt Caching</strong>. זה לא פיצ'ר "נחמד שיהיה" - זה יכול לשנות משמעותית את העלות ואת מהירות התגובה של המערכת שלכם.</p>
+
+      <h2>מה זה בפועל</h2>
+      <p>הרבה אפליקציות שולחות את אותו "חלק קבוע" של הפרומפט שוב ושוב בכל בקשה - הוראות מערכת, מסמכים ארוכים, דוגמאות. Prompt Caching מאפשר לשמור את החלק הקבוע הזה ב"מטמון" (cache) בצד השרת, כך שבבקשה הבאה עם אותו תוכן קבוע, המודל לא צריך "לעבד" אותו מחדש מאפס.</p>
+
+      <div class="callout">
+        <strong>למה זה משנה:</strong> בשיחה עם היסטוריה ארוכה, מסמך ידע גדול, או הוראות מערכת מפורטות - Caching יכול לקצר משמעותית את זמן התגובה ואת העלות לכל קריאה, כי המערכת לא "משלמת" מחדש על אותו טקסט קבוע בכל פעם.
+        </div>
+
+      <h2>מתי זה הכי משתלם</h2>
+      <ul>
+        <li><strong>צ'אטבוט עם הוראות מערכת ארוכות</strong> - שנשארות זהות בכל שיחה.</li>
+        <li><strong>אפליקציה שמזינה מסמך רקע גדול</strong> (מדריך, מסמך מדיניות) שחוזר על עצמו בכל בקשה.</li>
+        <li><strong>סוכן שרץ הרבה קריאות עם אותו הקשר בסיסי</strong> - כמו סוכן קוד שעובד על אותו בסיס קוד לאורך זמן.</li>
+      </ul>
+
+      <h2>מה זה אומר לעסק</h2>
+      <p>אם אתם בונים מוצר AI ולא בונים אותו בעצמכם - שווה לוודא שמי שכן בונה עבורכם מכיר ומיישם את זה. זה ההבדל בין מוצר AI שעולה הרבה כסף מיותר לבין מוצר שמנוצל בחוכמה מבחינת עלות-תועלת.</p>
+
+      <p class="dim">בונים או מתכננים אפליקציית AI ורוצים לוודא שהיא בנויה נכון מבחינת עלויות? <a href="../contact.html">בואו נדבר</a>.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>עידן AI - מדריכים ואוטומציה בעברית</div>
+    <div><a href="../contact.html">צור קשר</a> · <a href="index.html">מדריכים</a> · <a href="../about.html">עליי</a></div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
