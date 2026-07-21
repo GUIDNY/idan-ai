@@ -42,6 +42,24 @@ document.addEventListener("DOMContentLoaded", () => {
     noai: "אפילו שימוש בסיסי בכלים כמו Claude או ChatGPT בעבודה היומיומית כבר יכול לחסוך שעות בשבוע."
   };
 
+  const SOLUTION_LABELS = {
+    service: "צ'אטבוט / סוכן AI לשירות לקוחות",
+    leads: "מערכת CRM לניהול וניקוד לידים",
+    content: "מערכת אוטומציה לתוכן שיווקי",
+    repetitive: "אוטומציה לתהליך העבודה החוזר",
+    inventory: "מערכת חכמה לניהול מלאי",
+    reports: "דוחות ו-BI אוטומטיים",
+    presence: "אתר / נוכחות דיגיטלית עם מענה אוטומטי",
+    noai: "ליווי להטמעת AI בעבודה היומיומית"
+  };
+
+  const GOAL_FALLBACK_SOLUTION = {
+    time: "אוטומציה לתהליך העבודה החוזר",
+    sales: "מערכת CRM לניהול וניקוד לידים",
+    service: "צ'אטבוט / סוכן AI לשירות לקוחות",
+    cost: "אוטומציה לתהליך העבודה החוזר"
+  };
+
   function updateCounter() {
     if (!counterEl) return;
     if (current < totalRealSteps) {
@@ -149,18 +167,22 @@ document.addEventListener("DOMContentLoaded", () => {
       else if (score < 80) level = "פוטנציאל אוטומציה גבוה";
       else level = "פוטנציאל אוטומציה גבוה מאוד";
 
+      const painsByWeight = pains.slice().sort((a, b) => (PAIN_WEIGHTS[b] || 0) - (PAIN_WEIGHTS[a] || 0));
+
+      const topSolution = SOLUTION_LABELS[painsByWeight[0]] || GOAL_FALLBACK_SOLUTION[goal] || "ליווי להטמעת AI מותאם לעסק שלכם";
+
       const recs = [];
       if (GOAL_TIPS[goal]) recs.push(GOAL_TIPS[goal]);
       if (INDUSTRY_TIPS[industry]) recs.push(INDUSTRY_TIPS[industry]);
-      pains
+      painsByWeight
         .filter((p) => PAIN_TIPS[p])
-        .sort((a, b) => (PAIN_WEIGHTS[b] || 0) - (PAIN_WEIGHTS[a] || 0))
         .slice(0, 2)
         .forEach((p) => recs.push(PAIN_TIPS[p]));
       if (recs.length < 2) recs.push("אתם כבר משתמשים בכלים חכמים - יש עדיין מקום לייעל תהליכים ספציפיים. בואו נדבר על זה.");
 
       document.getElementById("res-score").textContent = score;
       document.getElementById("res-level").textContent = level;
+      document.getElementById("top-solution-name").textContent = topSolution;
       const list = document.getElementById("res-list");
       list.innerHTML = "";
       recs.forEach((r) => {
@@ -170,13 +192,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const waText = encodeURIComponent(
-        `היי, מילאתי את בדיקת ההתאמה ל-AI באתר.\nשם: ${name}\nעסק/תחום: ${industry || "-"}\nגודל צוות: ${teamSize || "-"}\nמטרה מרכזית: ${goal || "-"}\nציון התאמה: ${score}\nאשמח לשיחה קצרה.`
+        `היי, מילאתי את בדיקת ההתאמה ל-AI באתר.\nשם: ${name}\nעסק/תחום: ${industry || "-"}\nגודל צוות: ${teamSize || "-"}\nמטרה מרכזית: ${goal || "-"}\nציון התאמה: ${score}\nההמלצה המרכזית: ${topSolution}\nאשמח לשיחה קצרה.`
       );
       document.getElementById("res-whatsapp").href = `https://wa.me/${OWNER_WHATSAPP}?text=${waText}`;
 
       const mailSubject = encodeURIComponent("בקשת שיחה - בדיקת התאמה ל-AI");
       const mailBody = encodeURIComponent(
-        `שם: ${name}\nאימייל: ${email}\nטלפון: ${phone || "-"}\nעסק/תחום: ${industry || "-"}\nגודל צוות: ${teamSize || "-"}\nמטרה מרכזית: ${goal || "-"}\nציון התאמה: ${score}`
+        `שם: ${name}\nאימייל: ${email}\nטלפון: ${phone || "-"}\nעסק/תחום: ${industry || "-"}\nגודל צוות: ${teamSize || "-"}\nמטרה מרכזית: ${goal || "-"}\nציון התאמה: ${score}\nההמלצה המרכזית: ${topSolution}`
       );
       document.getElementById("res-mail").href = `mailto:bd12123@gmail.com?subject=${mailSubject}&body=${mailBody}`;
 
