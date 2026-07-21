@@ -511,6 +511,9 @@ footer {
   .hero p { font-size: 1rem; }
   .eyebrow { font-size: 0.8rem; padding: 5px 13px; }
 
+  #guides .grid .card { display: none; }
+  #guides .grid .card:first-child { display: block; }
+
   section { padding: 48px 0; }
   .section-head { margin-bottom: 30px; }
   .section-head h2 { font-size: 1.5rem; }
