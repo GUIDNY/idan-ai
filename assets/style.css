@@ -142,6 +142,30 @@ header {
   text-align: center;
 }
 
+.hero-video-wrap { position: relative; overflow: hidden; }
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(19,19,21,0.35) 0%, var(--bg) 92%),
+    radial-gradient(circle at 85% 8%, var(--glow-cyan), transparent 45%),
+    radial-gradient(circle at 12% 30%, var(--glow-purple), transparent 45%);
+  z-index: 1;
+}
+
+.hero-video-wrap .container { position: relative; z-index: 2; }
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
