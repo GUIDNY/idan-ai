@@ -160,13 +160,52 @@
         <h2>דוגמאות חיות - נסו בעצמכם</h2>
         <p>לא הדמיות - כלים אמיתיים שרצים עכשיו בדפדפן. לוחצים ומנסים, בלי הרשמה.</p>
       </div>
+
+      <div class="phone-demo-layout" style="margin-bottom:56px;">
+        <div class="phone-mockup phone-mockup-lg">
+          <div class="phone-notch"></div>
+          <div class="phone-screen phone-screen-lg">
+            <div class="phone-chat-header">
+              <div class="phone-chat-avatar">🏢</div>
+              <div>
+                <b>העסק שלכם (דמו)</b>
+                <span>בדרך כלל עונה תוך דקות</span>
+              </div>
+            </div>
+            <div class="phone-messages" id="phone-messages"></div>
+            <div class="phone-quick-replies" id="phone-quick-replies">
+              <button type="button" class="quick-reply-btn" data-q="היי, ראיתי את המודעה על הדירה, מתעניין">מתעניין בדירה</button>
+              <button type="button" class="quick-reply-btn" data-q="כמה זה עולה?">כמה זה עולה?</button>
+              <button type="button" class="quick-reply-btn" data-q="התקציב שלי בערך 2 מיליון, שמי דני">התקציב שלי</button>
+              <button type="button" class="quick-reply-btn" data-q="אפשר לחזור אליי היום? 050-1234567">תשאירו לי פרטים</button>
+            </div>
+            <form class="phone-input-row" id="phone-form">
+              <input type="text" id="phone-input" placeholder="הקלידו הודעה..." autocomplete="off">
+              <button type="submit" aria-label="שליחה">➤</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="phone-crm-panel">
+          <h3>הליד שמתגבש עכשיו ב-CRM</h3>
+          <p class="step-sub">מתעדכן אוטומטית מתוך השיחה שלכם עם הבוט.</p>
+          <div class="crm-card" id="live-lead-card">
+            <div class="crm-card-head">
+              <span class="crm-card-name" id="lead-name">ליד אנונימי</span>
+              <span class="crm-badge cold" id="lead-badge">❄️ קר</span>
+            </div>
+            <div class="crm-card-row"><b>תחום:</b> <span id="lead-interest">ממתין למידע...</span></div>
+            <div class="crm-card-row"><b>תקציב:</b> <span id="lead-budget">לא צוין</span></div>
+            <div class="crm-card-row"><b>פרטי קשר:</b> <span id="lead-contact">לא זוהו</span></div>
+            <div class="crm-card-row"><b>מקור:</b> וואטסאפ עסקי (דמו)</div>
+          </div>
+          <p style="text-align:center; margin-top:20px;">
+            <a href="demo-phone.html" class="btn btn-secondary" style="display:inline-block;">לדף המלא של הדמו ←</a>
+          </p>
+        </div>
+      </div>
+
       <div class="grid">
-        <a href="demo-phone.html" class="card">
-          <span class="tag">כלי חי</span>
-          <h3>דמו: שיחה בטלפון שהופכת לליד ב-CRM</h3>
-          <p>נהלו שיחה עם בוט ממש כמו בוואטסאפ, וראו את כרטיס הליד נבנה לצדכם בזמן אמת - שם, תקציב ורמת חום.</p>
-          <span class="read-more">נסו את זה בעצמכם ←</span>
-        </a>
         <a href="assessment.html" class="card">
           <span class="tag">כלי חי</span>
           <h3>בדיקת התאמה ל-AI</h3>
@@ -260,3 +299,4 @@
 <script src="assets/script.js"></script>
 <script src="assets/hero-video.js"></script>
 <script src="assets/consult-modal.js"></script>
+<script src="assets/demo-phone.js"></script>
