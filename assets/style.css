@@ -419,6 +419,7 @@ section { padding: 70px 0; }
 }
 
 .service.service-lg { grid-column: span 8; }
+.service.service-full { grid-column: span 12; }
 
 .service .icon,
 .service .material-symbols-outlined {
@@ -433,7 +434,7 @@ section { padding: 70px 0; }
 
 @media (max-width: 800px) {
   .services-grid { grid-template-columns: 1fr; }
-  .service, .service.service-lg { grid-column: span 1; }
+  .service, .service.service-lg, .service.service-full { grid-column: span 1; }
   #hero-video { display: none !important; }
   .hero-video-still { opacity: 0.65 !important; }
 }
