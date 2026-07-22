@@ -1,0 +1,98 @@
+<title>דמו: שיחה בוואטסאפ שהופכת לליד ב-CRM | עידן AI</title>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="דמו אינטראקטיבי - נהלו שיחה עם בוט כמו בוואטסאפ, וראו את הליד נבנה בזמן אמת בלוח CRM לצד השיחה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<a href="contact.html" class="announce-bar">⚡ אל תישארו מאחור - AI כבר כאן. בואו נדבר ←</a>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo"><img src="assets/images/aidan-avatar.png" alt="עידן גינדי" class="logo-avatar">עידן <span>AI</span></a>
+    <nav class="nav-links">
+      <a href="index.html">בית</a>
+      <a href="guides/index.html">מדריכים</a>
+      <a href="work.html">דוגמאות</a>
+      <a href="about.html">עליי</a>
+      <a href="contact.html">צור קשר</a>
+    </nav>
+    <a href="assessment.html" class="nav-cta">בדיקת התאמה חינם</a>
+    <button class="menu-toggle" aria-label="תפריט">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:16px;">
+    <div class="container">
+      <span class="eyebrow">דמו אינטראקטיבי</span>
+      <h1>שיחה בטלפון <span class="grad">שהופכת לליד</span> ב-CRM - בזמן אמת</h1>
+      <p>נהלו שיחה עם הבוט ממש כמו בוואטסאפ - ותראו את כרטיס הליד נבנה לצדכם, שדה אחרי שדה, בדיוק כמו שזה יקרה בעסק אמיתי.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="phone-demo-layout">
+        <div class="phone-mockup phone-mockup-lg">
+          <div class="phone-notch"></div>
+          <div class="phone-screen phone-screen-lg">
+            <div class="phone-chat-header">
+              <div class="phone-chat-avatar">🏢</div>
+              <div>
+                <b>העסק שלכם (דמו)</b>
+                <span>בדרך כלל עונה תוך דקות</span>
+              </div>
+            </div>
+            <div class="phone-messages" id="phone-messages"></div>
+            <div class="phone-quick-replies" id="phone-quick-replies">
+              <button type="button" class="quick-reply-btn" data-q="היי, ראיתי את המודעה על הדירה, מתעניין">מתעניין בדירה</button>
+              <button type="button" class="quick-reply-btn" data-q="כמה זה עולה?">כמה זה עולה?</button>
+              <button type="button" class="quick-reply-btn" data-q="התקציב שלי בערך 2 מיליון, שמי דני">התקציב שלי</button>
+              <button type="button" class="quick-reply-btn" data-q="אפשר לחזור אליי היום? 050-1234567">תשאירו לי פרטים</button>
+            </div>
+            <form class="phone-input-row" id="phone-form">
+              <input type="text" id="phone-input" placeholder="הקלידו הודעה..." autocomplete="off">
+              <button type="submit" aria-label="שליחה">➤</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="phone-crm-panel">
+          <h3>הליד שמתגבש עכשיו ב-CRM</h3>
+          <p class="step-sub">מתעדכן אוטומטית מתוך השיחה שלכם עם הבוט.</p>
+          <div class="crm-card" id="live-lead-card">
+            <div class="crm-card-head">
+              <span class="crm-card-name" id="lead-name">ליד אנונימי</span>
+              <span class="crm-badge cold" id="lead-badge">❄️ קר</span>
+            </div>
+            <div class="crm-card-row"><b>תחום:</b> <span id="lead-interest">ממתין למידע...</span></div>
+            <div class="crm-card-row"><b>תקציב:</b> <span id="lead-budget">לא צוין</span></div>
+            <div class="crm-card-row"><b>פרטי קשר:</b> <span id="lead-contact">לא זוהו</span></div>
+            <div class="crm-card-row"><b>מקור:</b> וואטסאפ עסקי (דמו)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="max-width:900px; margin:36px auto 0;">
+        <strong>איך זה עובד:</strong> כל הודעה שאתם שולחים נסרקת בזמן אמת (זיהוי מילות מפתח, מספרים ותבניות טקסט) ומעדכנת את כרטיס הליד בצד - בלי שאף אחד יצטרך להעתיק-להדביק מידע בין וואטסאפ למערכת ה-CRM.
+      </div>
+
+      <p style="text-align:center; margin-top:24px;">
+        <a href="assessment.html" class="btn btn-primary">בדקו אם זה מתאים לעסק שלכם</a>
+      </p>
+      <p style="text-align:center; margin-top:14px; color:var(--text-dim);">רוצים לראות עוד דוגמה? <a href="demo-crm.html" style="color:var(--accent2);">דמו: הודעה בודדת שהופכת לליד</a> · <a href="demo.html" style="color:var(--accent2);">דמו: צ'אטבוט שירות לקוחות</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>עידן AI - מדריכים ואוטומציה בעברית</div>
+    <div><a href="contact.html">צור קשר</a> · <a href="guides/index.html">מדריכים</a> · <a href="about.html">עליי</a></div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/demo-phone.js"></script>
